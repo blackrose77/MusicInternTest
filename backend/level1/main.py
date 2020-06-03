@@ -1,22 +1,6 @@
 from parse_json import *
 from datetime import datetime
 
-def replace_backslash(string):
-    res = ""
-    sauv = '\0'
-    is_back_n = 0
-    for i in range(len(string)):
-        if (string[i] == '\\'):
-            if (i + 1 < len(string) - 1) and string[i + 1] == 'n':
-                res = res + '\n'
-                is_back_n = 1
-            continue
-        if (is_back_n == 1):
-            is_back_n = 0
-            continue
-        res = res + string[i]
-    return res
-
 def get_price(js, days, distance, car_id):
 
     for cars in js.get_js()["cars"]:
